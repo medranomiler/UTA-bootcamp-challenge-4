@@ -1,5 +1,9 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const scoreText = document.getElementById('score');
+const timerText =  document.getElementById('timer');
+
+var sec = 100;
 
 let currentQuestion = {};
 let acceptingAnswers = true;
@@ -31,24 +35,41 @@ let questions = [
       choice3: 'yes',
       choice4: 'noh hue',
       answer: 4     
-  }
+  },
+  {
+    question: "Is Teddy the best dog ever?",
+    choice1: 'maybe',
+    choice2: 'probably not',
+    choice3: 'yes',
+    choice4: 'noh hue',
+    answer: 3     
+},
+{
+  question: "Is dinner ready yet?",
+  choice1: 'maybe',
+  choice2: 'probably not',
+  choice3: 'yes',
+  choice4: 'noh hue',
+  answer: 4     
+}
 ];
 
 
   // constants
-  const CORRECT_BONUS = 10;
-  const MAX_QUESTIONS = 3;
+  const CORRECT_BONUS = 100;
+  const MAX_QUESTIONS = 5;
 
     startGame = () => {
+      startTimer()
+
     questionCounter = 0
     score = 0
     availableQuestions = [... questions]
-    console.log(availableQuestions)
     getNewQuestion()
+
   }
 
   getNewQuestion = () => {
-
     if(availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS ){
       return window.location.assign('/end.html');
     }
@@ -63,7 +84,6 @@ let questions = [
     });
 
     availableQuestions.splice(questionIndex, 1);
-
     acceptingAnswers = true;
   };
 
@@ -74,24 +94,53 @@ choices.forEach(choice => {
     acceptingAnswers = false;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset['number'];
-    console.log(selectedAnswer);
+
+    const classToApply = 
+    selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+
+    if(classToApply == "correct"){
+      incrementScore(CORRECT_BONUS);
+    }
+    if(classToApply == "incorrect"){
+      timerPenalty();
+    }
+
+
+    
+    selectedChoice.parentElement.classList.add(classToApply);
+
+  setTimeout(() => {
+    selectedChoice.parentElement.classList.remove(classToApply);
     getNewQuestion();
+  }, 1000);
   });
 });
 
-   startGame();
 
-// function startGame() {
-//     var sec = 60;
-//     function startTimer(){
-//         console.log('timer started')
-//         var timer = setInterval(function(){
-//             sec--;
-//             document.getElementById('timer').innerHTML='00:'+sec;
-//             if (sec <= 0) {
-//                 clearInterval(timer);
-//                 alert("Time is up!")
-//             }
-//         }, 1000);
-//     }
-//     startTimer();
+incrementScore = num => {
+  score += num;
+  scoreText.innerText = score;
+};
+function timerPenalty () {
+  sec -= 10
+  timerText.innerHTML = sec;
+ };
+
+function startTimer(){
+  console.log('timer started')
+  var timer = setInterval(function(){
+      sec--;
+      timerText.innerHTML = sec;
+      if (sec < 0) {
+          clearInterval(timer);
+          return window.location.assign('/end.html');
+      }
+  }, 1000);
+}    
+
+
+
+
+
+
+   startGame();

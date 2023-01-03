@@ -70,6 +70,40 @@ body{
     justify-content: center;
     align-items: center;
 }
-h2{
+h2#question{
     text-align: center;
+    font-size: 33px;
+}
+
+.correct{
+    background-color:lime;
+}
+
+.incorrect{
+    background-color:red;
+}
+
+/* HUD */
+#hud{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+}
+
+#hud-item-timer, #hud-item-score {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+
+}
+
+ #timer, #score{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
 }
