@@ -18,35 +18,35 @@ let questions = [
       answer: 1    
   },
   {
-      question: "What is Teddy's favorite toy?",
-      choice1: 'rope',
-      choice2: 'tenny ball',
-      choice3: 'longhorn',
-      choice4: 'hedgehog',
+      question: "Who was the first U.S. President?",
+      choice1: 'Abraham Licoln',
+      choice2: 'Thomas Jefferson',
+      choice3: 'George Washington',
+      choice4: 'Andrew Jackson',
       answer: 3     
   },
   {
-      question: "Will I ever get my Amazon gift card from DHI?",
-      choice1: 'maybe',
-      choice2: 'probably not',
-      choice3: 'yes',
-      choice4: 'noh hue',
+      question: "What is the spanish word for the color red?",
+      choice1: 'blanco',
+      choice2: 'amarillo',
+      choice3: 'naranja',
+      choice4: 'rojo',
       answer: 4     
   },
   {
-    question: "Is Teddy the best dog ever?",
-    choice1: 'maybe',
-    choice2: 'probably not',
-    choice3: 'yes',
-    choice4: 'noh hue',
+    question: "What ocean is on the west coast of the United States?",
+    choice1: 'Indian',
+    choice2: 'Arctic',
+    choice3: 'Pacific',
+    choice4: 'Atlantic',
     answer: 3     
 },
 {
-  question: "Is dinner ready yet?",
-  choice1: 'maybe',
-  choice2: 'probably not',
-  choice3: 'yes',
-  choice4: 'noh hue',
+  question: "What is the name for the first 10 ammendments to the US Constitution?",
+  choice1: 'Declaration of Independence',
+  choice2: 'The 10 Commandments',
+  choice3: 'The Miranda Rights',
+  choice4: 'The Bill of Rights',
   answer: 4     
 }
 ];
@@ -65,7 +65,7 @@ let questions = [
 
   function getNewQuestion(){
     if(availableQuestions.length == 0){
-      return window.location.assign('/end.html');
+      return window.location.assign('./end.html?score='+sec);
     }
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -116,9 +116,20 @@ function startTimer(){
       timerText.innerHTML = sec;
       if (sec < 0) {
           clearInterval(timer);
-          return window.location.assign('/end.html');
+          return window.location.assign('./end.html?score='+sec);
       }
   }, 1000);
 }    
 
 startGame();
+
+
+// create variable for current score which is equal to remaining time when quiz is complete
+// create variable for name associated with score
+// this may look like an object
+// save object to local storage using localStorage.setItem
+// get highscore data from local storage &
+// assign key values to innerText of html elements to display on the highscores page
+
+
+
