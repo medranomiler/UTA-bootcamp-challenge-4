@@ -1,14 +1,11 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
-const scoreText = document.getElementById('score');
 const timerText =  document.getElementById('timer');
 
 var sec = 100;
 
 let currentQuestion = {};
 let acceptingAnswers = true;
-let score = 0;
-let questionCounter = 0;
 let availableQuestions = [];
 
 let questions = [
@@ -56,24 +53,20 @@ let questions = [
 
 
   // constants
-  const CORRECT_BONUS = 100;
   const MAX_QUESTIONS = 5;
 
     startGame = () => {
       startTimer()
 
-    questionCounter = 0
-    score = 0
     availableQuestions = [... questions]
     getNewQuestion()
 
   }
 
-  getNewQuestion = () => {
-    if(availableQuestions.length == 0 || questionCounter >= MAX_QUESTIONS ){
+  function getNewQuestion(){
+    if(availableQuestions.length == 0){
       return window.location.assign('/end.html');
     }
-    questionCounter++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -98,15 +91,10 @@ choices.forEach(choice => {
     const classToApply = 
     selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
-    if(classToApply == "correct"){
-      incrementScore(CORRECT_BONUS);
-    }
     if(classToApply == "incorrect"){
       timerPenalty();
     }
 
-
-    
     selectedChoice.parentElement.classList.add(classToApply);
 
   setTimeout(() => {
@@ -116,11 +104,6 @@ choices.forEach(choice => {
   });
 });
 
-
-incrementScore = num => {
-  score += num;
-  scoreText.innerText = score;
-};
 function timerPenalty () {
   sec -= 10
   timerText.innerHTML = sec;
@@ -138,9 +121,4 @@ function startTimer(){
   }, 1000);
 }    
 
-
-
-
-
-
-   startGame();
+startGame();
