@@ -65,7 +65,8 @@ let questions = [
 
   function getNewQuestion(){
     if(availableQuestions.length == 0){
-      return window.location.assign('./end.html?score='+sec);
+      localStorage.setItem("score" , sec);
+      return window.location.assign('./end.html');
     }
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -116,7 +117,8 @@ function startTimer(){
       timerText.innerHTML = sec;
       if (sec < 0) {
           clearInterval(timer);
-          return window.location.assign('./end.html?score='+sec);
+          localStorage.setItem("score" , sec);
+          return window.location.assign('./end.html');
       }
   }, 1000);
 }    

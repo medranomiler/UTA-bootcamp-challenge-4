@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>GAME OVER</h1>
-    <h2>Submit Your Score</h2>
-    <h3 id="score">0</h3>
-    <input 
-    id="username"
-    placeholder="username"></input>
-    <button id="submit">Submit</button>
-</body>
-<script src="end.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width,
+        initial-scale=1.0">
+        <link href="./assets/css/reset.css" rel="reset">
+        <link href="./assets/css/end.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Game Over</h1>
+            <div id="home">
+            <h3 id="score">0</h3>
+            <input 
+            id="username"
+            placeholder="username"></input>
+            <div class="btns">
+            <a class="btn" id="submit">Submit</a>
+            <a class="btn" id ="play">Play Again</a>
+            </div>
+            </div>
+            <div id="HS">
+            <h2>Highscores</h2>
+            <div class="highscores">
+                <ul id="hs-list">
+                </ul>
+            </div>
+            </div>
+        </div>
+    </body>
+    <script src="end.js"></script>
 </html>
