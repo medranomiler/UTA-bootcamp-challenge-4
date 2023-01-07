@@ -21,6 +21,8 @@ function saveHighScore(event){
 
     event.preventDefault();
 
+    scoreDisplayed.innerText = "SUBMITTED!"
+
     const score = {
         score: gameScore,
         name: username.value
