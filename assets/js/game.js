@@ -9,8 +9,8 @@ let acceptingAnswers = true;
 let availableQuestions = [];
 
 let questions = [
-    {
-      question: 'What document declard the American Indepence from Britain?',
+    {           
+      question: "Which document was signed on August 8, 1776?",
       choice1: 'The Treaty of Paris',
       choice2: 'Declaration of Independece',
       choice3: 'The U.S. Constitution',
@@ -26,15 +26,15 @@ let questions = [
       answer: 3     
   },
   {
-      question: "Which book was written by Thomas Paine",
-      choice1: 'The Creature from Jekyll Island',
+      question: "Which book did Thomas Paine write?",
+      choice1: 'The Art of War',
       choice2: 'Two Treatises of Government',
-      choice3: 'The Fedarilst Papers',
+      choice3: 'The Federalist Papers',
       choice4: 'The Rights of Man',
       answer: 4     
   },
   {
-    question: "What treaty marked the end of the American Revolution",
+    question: "What treaty ended the American Revolutionary War?",
     choice1: 'Declaration of Independece',
     choice2: 'The Treaty of Versailles',
     choice3: 'The Treaty of Paris',
@@ -42,7 +42,7 @@ let questions = [
     answer: 3     
 },
 {
-  question: "What are known as the first 10 ammendments to the US Constitution?",
+  question: "What are the first 10 ammendments to the U.S. Constitution?",
   choice1: 'Declaration of Independence',
   choice2: 'The 10 Commandments         ',
   choice3: 'The Miranda Rights          ',
@@ -101,7 +101,7 @@ choices.forEach(choice => {
   setTimeout(() => {
     selectedChoice.parentElement.classList.remove(classToApply);
     getNewQuestion();
-  }, 1000);
+  }, 500);
   });
 });
 
