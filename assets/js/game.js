@@ -10,43 +10,43 @@ let availableQuestions = [];
 
 let questions = [
     {
-      question: 'What is 2 + 2?',
-      choice1: '4',
-      choice2: '2',
-      choice3: '1',
-      choice4: '22',
-      answer: 1    
+      question: 'What document declard the American Indepence from Britain?',
+      choice1: 'The Treaty of Paris',
+      choice2: 'Declaration of Independece',
+      choice3: 'The U.S. Constitution',
+      choice4: 'The Treaty of Versailles',
+      answer: 2    
   },
   {
       question: "Who was the first U.S. President?",
-      choice1: 'Abraham Licoln',
-      choice2: 'Thomas Jefferson',
-      choice3: 'George Washington',
-      choice4: 'Andrew Jackson',
+      choice1: 'Richard Nixon          ',
+      choice2: 'John F Kennedy         ',
+      choice3: 'George Washington      ',
+      choice4: 'Woodrow Wilson         ',
       answer: 3     
   },
   {
-      question: "What is the spanish word for the color red?",
-      choice1: 'blanco',
-      choice2: 'amarillo',
-      choice3: 'naranja',
-      choice4: 'rojo',
+      question: "Which book was written by Thomas Paine",
+      choice1: 'The Creature from Jekyll Island',
+      choice2: 'Two Treatises of Government',
+      choice3: 'The Fedarilst Papers',
+      choice4: 'The Rights of Man',
       answer: 4     
   },
   {
-    question: "What ocean is on the west coast of the United States?",
-    choice1: 'Indian',
-    choice2: 'Arctic',
-    choice3: 'Pacific',
-    choice4: 'Atlantic',
+    question: "What treaty marked the end of the American Revolution",
+    choice1: 'Declaration of Independece',
+    choice2: 'The Treaty of Versailles',
+    choice3: 'The Treaty of Paris',
+    choice4: 'The Magna Carta',
     answer: 3     
 },
 {
-  question: "What is the name for the first 10 ammendments to the US Constitution?",
+  question: "What are known as the first 10 ammendments to the US Constitution?",
   choice1: 'Declaration of Independence',
-  choice2: 'The 10 Commandments',
-  choice3: 'The Miranda Rights',
-  choice4: 'The Bill of Rights',
+  choice2: 'The 10 Commandments         ',
+  choice3: 'The Miranda Rights          ',
+  choice4: 'The Bill of Rights          ',
   answer: 4     
 }
 ];
@@ -66,7 +66,7 @@ let questions = [
   function getNewQuestion(){
     if(availableQuestions.length == 0){
       localStorage.setItem("score" , sec);
-      return window.location.assign('./end.html');
+      return window.location.assign('../pages/end.html');
     }
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -111,27 +111,16 @@ function timerPenalty () {
  };
 
 function startTimer(){
-  console.log('timer started')
   var timer = setInterval(function(){
       sec--;
       timerText.innerHTML = sec;
       if (sec < 0) {
           clearInterval(timer);
           localStorage.setItem("score" , sec);
-          return window.location.assign('./end.html');
+          return window.location.assign('../pages/end.html');
       }
   }, 1000);
 }    
 
 startGame();
-
-
-// create variable for current score which is equal to remaining time when quiz is complete
-// create variable for name associated with score
-// this may look like an object
-// save object to local storage using localStorage.setItem
-// get highscore data from local storage &
-// assign key values to innerText of html elements to display on the highscores page
-
-
 

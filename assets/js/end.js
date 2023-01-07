@@ -2,7 +2,7 @@ const username = document.getElementById('username')
 const submitBtn = document.getElementById('submit')
 const scoreDisplayed = document.getElementById('score')
 const gameScore = localStorage.getItem('score')
-scoreDisplayed.innerText = gameScore
+scoreDisplayed.innerText = "Score:  " + gameScore
 const hsList = document.getElementById('hs-list')
 
 const highscores = JSON.parse(localStorage.getItem('highscores')) || [];
@@ -48,5 +48,5 @@ getHighscores()
 
 var play = document.getElementById('play')
 play.addEventListener('click', function (){
-    window.location.assign("./game.html")
+    window.location.assign("../pages/game.html")
 })
