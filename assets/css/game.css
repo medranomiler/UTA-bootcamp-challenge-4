@@ -83,7 +83,7 @@ h2#question{
     background-color:red;
 }
 
-/* HUD */
+/* Timer */
 #hud{
     display:flex;
     flex-direction: row;
