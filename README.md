@@ -1,21 +1,27 @@
 # UTA-bootcamp-challenge-4
 Build a JavaScript Quiz App
 
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
+##AS A coding boot camp student
+##I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+
+#GIVEN I am taking a code quiz
+
+##WHEN I click the start button
+##THEN a timer starts and I am presented with a question
+
+##WHEN I answer a question
+##THEN I am presented with another question
+
+##WHEN I answer a question incorrectly
+##THEN time is subtracted from the clock
+
+##WHEN all questions are answered or the timer reaches 0
+##THEN the game is over
+
+##WHEN the game is over
+##THEN I can save my initials and score
 
 <img width="638" alt="Screenshot 2023-01-06 at 9 59 45 PM" src="https://user-images.githubusercontent.com/67513942/211130256-ea8710a0-c5c8-4611-834c-2d56c8e9a111.png">
 <img width="638" alt="Screenshot 2023-01-06 at 9 59 03 PM" src="https://user-images.githubusercontent.com/67513942/211130260-bfe76206-3b37-479e-bf99-0d2ad18014a0.png">
